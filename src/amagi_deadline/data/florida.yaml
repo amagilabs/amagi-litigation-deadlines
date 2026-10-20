@@ -1,0 +1,51 @@
+# Florida state court -- deadline rule set.
+#
+# Counting method: Fla. R. Jud. Admin. 2.514(a) (formerly Fla. R. Civ. P.
+# 1.090(a); the counting rule moved to the judicial administration rules
+# in 2013 and applies uniformly across Florida's procedural rule sets).
+#   (1) exclude the day of the triggering event;
+#   (2) count every day, including intermediate Saturdays, Sundays, and
+#       legal holidays;
+#   (3) include the last day, but if the last day is a Saturday, Sunday,
+#       legal holiday, or a day the clerk's office is closed, the period
+#       runs until the end of the next day that is open and is not a
+#       Saturday, Sunday, or legal holiday.
+# Legal holidays: Fla. Stat. S 683.01, incorporated by Fla. R. Jud. Admin.
+# 2.514(a)(6).
+#
+# This file is a code-maintained summary, not a substitute for reading the
+# rule. Local administrative orders closing a specific courthouse on a
+# specific day are not reflected here and can further extend a deadline --
+# always confirm against the current rule text and the clerk's calendar.
+
+id: florida
+name: "Florida state courts (civil)"
+counting_rule_cite: "Fla. R. Jud. Admin. 2.514(a)"
+holiday_set: florida
+source_note: >
+  Current as of the 2026-10-20 build of this tool. Verify against the
+  official text at https://www.flcourts.gov/Resources-Services/Office-of-General-Counsel/Rules
+  or the Florida Bar's rules of procedure page before relying on any
+  computed date.
+
+events:
+  answer-complaint:
+    label: "Answer to complaint"
+    days: 20
+    cite: "Fla. R. Civ. P. 1.140(a)(1)"
+  discovery-response:
+    label: "Response to interrogatories, document production, or requests for admission"
+    days: 30
+    cite: "Fla. R. Civ. P. 1.340(a) / 1.350(b) / 1.370(a)"
+  motion-for-new-trial:
+    label: "Motion for new trial or rehearing"
+    days: 15
+    cite: "Fla. R. Civ. P. 1.530(b)"
+  notice-of-appeal:
+    label: "Notice of appeal (final order, civil)"
+    days: 30
+    cite: "Fla. R. App. P. 9.110(b)"
+  motion-to-dismiss-response:
+    label: "Response to a motion (absent a different local or judge-specific deadline)"
+    days: 10
+    cite: "Fla. R. Jud. Admin. 2.516 and local rule practice -- confirm the assigned judge's procedures; Florida does not set one uniform response period for all motions"

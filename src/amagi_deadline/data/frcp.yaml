@@ -1,0 +1,59 @@
+# Federal Rules of Civil Procedure -- deadline rule set.
+#
+# Counting method: Fed. R. Civ. P. 6(a).
+#   (1) exclude the day of the triggering event;
+#   (2) count every day, including intermediate Saturdays, Sundays, and
+#       legal holidays;
+#   (3) include the last day, but if the last day is a Saturday, Sunday,
+#       or legal holiday, the period runs until the end of the next day
+#       that is not a Saturday, Sunday, or legal holiday.
+# Legal holidays: 5 U.S.C. S 6103, incorporated by Fed. R. Civ. P. 6(a)(6)(A).
+#
+# This file is a code-maintained summary, not a substitute for reading the
+# rule. Local rules, standing orders, and amendments to the FRCP can change
+# or displace any of these periods -- always confirm against the current
+# text of the rule and the court's local rules before relying on a date.
+
+id: frcp
+name: "Federal Rules of Civil Procedure (civil, district court)"
+counting_rule_cite: "Fed. R. Civ. P. 6(a)"
+holiday_set: federal
+source_note: >
+  Current as of the 2026-10-20 build of this tool. Verify against the
+  official text at https://www.law.cornell.edu/rules/frcp or
+  https://www.uscourts.gov/rules-policies/current-rules-practice-procedure
+  before relying on any computed date.
+
+events:
+  answer-complaint:
+    label: "Answer to complaint (served, not waived)"
+    days: 21
+    cite: "Fed. R. Civ. P. 12(a)(1)(A)(i)"
+  answer-after-waiver:
+    label: "Answer after waiver of service (domestic defendant)"
+    days: 60
+    cite: "Fed. R. Civ. P. 12(a)(1)(A)(ii)"
+  answer-after-waiver-foreign:
+    label: "Answer after waiver of service (defendant outside any US judicial district)"
+    days: 90
+    cite: "Fed. R. Civ. P. 12(a)(1)(A)(ii)"
+  reply-to-counterclaim:
+    label: "Reply to a counterclaim"
+    days: 21
+    cite: "Fed. R. Civ. P. 12(a)(1)(B)"
+  reply-to-crossclaim:
+    label: "Answer to a crossclaim"
+    days: 21
+    cite: "Fed. R. Civ. P. 12(a)(1)(B)"
+  answer-to-amended-pleading:
+    label: "Response to an amended pleading (minimum period; may be later if original response not yet due)"
+    days: 14
+    cite: "Fed. R. Civ. P. 15(a)(3)"
+  discovery-response:
+    label: "Response to interrogatories, document requests, or requests for admission"
+    days: 30
+    cite: "Fed. R. Civ. P. 33(b)(2) / 34(b)(2) / 36(a)(3)"
+  removal-notice:
+    label: "Notice of removal from state court"
+    days: 30
+    cite: "28 U.S.C. S 1446(b)(1); counting method per Fed. R. Civ. P. 6(a) (applies to statutory periods not otherwise specifying a method)"
