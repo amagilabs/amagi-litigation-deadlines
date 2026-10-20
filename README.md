@@ -117,10 +117,10 @@ litigators and paralegals find it.
 ## Other AmagiLabs projects
 
 - [amagilabs on GitHub](https://github.com/amagilabs) — the full catalog of small, open-source
-  developer and productivity tools from Amagi Solutions Group LLC.
+  developer and productivity tools from Amagisolutionsgroup, Inc..
 - [amagi-watch](https://github.com/amagilabs/amagi-watch) — turns a video URL into something
   Claude can read (transcript + key frames + timestamped index).
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Copyright (c) 2026 Amagi Solutions Group LLC.
+MIT — see [LICENSE](LICENSE). Copyright (c) 2026 Amagisolutionsgroup, Inc..
