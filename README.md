@@ -5,9 +5,7 @@ an `.ics` calendar file, and a citation for every rule applied.
 
 ## Demo
 
-TODO: demo GIF/terminal recording not yet captured by a human (no screen-recording tool was
-available in this build session). Record a short asciinema/terminal GIF of the `calc` example
-below and drop it here before launch. Example output is real CLI output, not a mock-up:
+![demo](assets/demo.gif)
 
 ```
 $ amagi-deadline calc --rules frcp --event answer-complaint --date 2026-10-19
@@ -19,6 +17,11 @@ on it.
 | Event | Trigger date | Deadline | Rolled forward? | Rule cite | Counting rule |
 |---|---|---|---|---|---|
 | Answer to complaint (served, not waived) | 2026-10-19 | 2026-11-09 | no | Fed. R. Civ. P. 12(a)(1)(A)(i) | Fed. R. Civ. P. 6(a) |
+
+Source rule set note: Current as of the 2026-10-20 build of this tool. Verify against the
+official text at https://www.law.cornell.edu/rules/frcp or
+https://www.uscourts.gov/rules-policies/current-rules-practice-procedure before relying on any
+computed date.
 ```
 
 ## Important: this is not legal advice
@@ -76,6 +79,10 @@ Jurisdiction (informational only, not used in the calculation): Example Circuit 
 | Event | Trigger date | Deadline | Rolled forward? | Rule cite | Counting rule |
 |---|---|---|---|---|---|
 | Answer to complaint | 2026-10-19 | 2026-11-09 | yes | Fla. R. Civ. P. 1.140(a)(1) | Fla. R. Jud. Admin. 2.514(a) |
+
+Source rule set note: Current as of the 2026-10-20 build of this tool. Verify against the
+official text at https://www.flcourts.gov/Resources-Services/Office-of-General-Counsel/Rules or
+the Florida Bar's rules of procedure page before relying on any computed date.
 
 Wrote deadline.ics
 ```
