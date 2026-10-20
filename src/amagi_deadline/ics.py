@@ -41,7 +41,7 @@ def build_ics(results: Iterable[DeadlineResult], calendar_name: str = "amagi-dea
     lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//Amagisolutionsgroup, Inc.//amagi-deadline//EN",
+        "PRODID:-//AmagiLabs (Amagisolutionsgroup, Inc.)//amagi-deadline//EN",
         "CALSCALE:GREGORIAN",
         f"X-WR-CALNAME:{_escape(calendar_name)}",
     ]

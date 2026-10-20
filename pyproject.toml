@@ -9,7 +9,7 @@ description = "Compute litigation response deadlines from a trigger event and da
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-authors = [{ name = "Amagisolutionsgroup, Inc." }]
+authors = [{ name = "AmagiLabs (Amagisolutionsgroup, Inc.)", email = "dev@amagisolutionsgroup.com" }]
 keywords = ["legal", "litigation", "deadlines", "cli", "court-rules", "paralegal"]
 classifiers = [
     "Programming Language :: Python :: 3",
