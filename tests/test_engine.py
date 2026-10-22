@@ -2,8 +2,8 @@ import datetime as dt
 
 import pytest
 
-from amagi_deadline.engine import compute_deadline
-from amagi_deadline.rules import get_event, load_rule_set
+from amagi_litigation_deadlines.engine import compute_deadline
+from amagi_litigation_deadlines.rules import get_event, load_rule_set
 
 
 @pytest.fixture
@@ -67,14 +67,14 @@ def test_florida_answer_complaint_20_days(florida):
 
 
 def test_unknown_event_raises(frcp):
-    from amagi_deadline.rules import RuleError
+    from amagi_litigation_deadlines.rules import RuleError
 
     with pytest.raises(RuleError):
         get_event(frcp, "does-not-exist")
 
 
 def test_unknown_rule_set_raises():
-    from amagi_deadline.rules import RuleError
+    from amagi_litigation_deadlines.rules import RuleError
 
     with pytest.raises(RuleError):
         load_rule_set("not-a-real-rule-set")

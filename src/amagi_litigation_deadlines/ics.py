@@ -36,19 +36,19 @@ def _fold(line: str) -> str:
     return (_CRLF + " ").join(parts)
 
 
-def build_ics(results: Iterable[DeadlineResult], calendar_name: str = "amagi-deadline") -> str:
+def build_ics(results: Iterable[DeadlineResult], calendar_name: str = "amagi-litigation-deadlines") -> str:
     now = _dt.datetime.now(_dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//AmagiLabs (Amagisolutionsgroup, Inc.)//amagi-deadline//EN",
+        "PRODID:-//AmagiLabs (Amagisolutionsgroup, Inc.)//amagi-litigation-deadlines//EN",
         "CALSCALE:GREGORIAN",
         f"X-WR-CALNAME:{_escape(calendar_name)}",
     ]
     for idx, result in enumerate(results):
         dtstart = result.deadline_date.strftime("%Y%m%d")
         dtend = (result.deadline_date + _dt.timedelta(days=1)).strftime("%Y%m%d")
-        uid = f"{dtstart}-{idx}-{result.event.key}@amagi-deadline"
+        uid = f"{dtstart}-{idx}-{result.event.key}@amagi-litigation-deadlines"
         summary = f"DEADLINE: {result.event.label} ({result.rule_set.id})"
         description = (
             f"Rule: {result.event.cite}. Counting rule: {result.rule_set.counting_rule_cite}. "
@@ -71,7 +71,7 @@ def build_ics(results: Iterable[DeadlineResult], calendar_name: str = "amagi-dea
     return _CRLF.join(lines) + _CRLF
 
 
-def write_ics(results: Iterable[DeadlineResult], path: str, calendar_name: str = "amagi-deadline") -> None:
+def write_ics(results: Iterable[DeadlineResult], path: str, calendar_name: str = "amagi-litigation-deadlines") -> None:
     content = build_ics(results, calendar_name=calendar_name)
     with open(path, "w", encoding="utf-8", newline="") as fh:
         fh.write(content)

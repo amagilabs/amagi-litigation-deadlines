@@ -1,4 +1,4 @@
-# amagi-deadline
+# amagi-litigation-deadlines
 
 Compute litigation response deadlines from a trigger event and a date, with a markdown table and
 an `.ics` calendar file, and a citation for every rule applied.
@@ -8,11 +8,11 @@ an `.ics` calendar file, and a citation for every rule applied.
 ![demo](assets/demo.gif)
 
 ```
-$ amagi-deadline calc --rules frcp --event answer-complaint --date 2026-10-19
-NOT LEGAL ADVICE: This is not legal advice. amagi-deadline computes dates from a code-maintained
-summary of court rules. Every computed deadline must be verified by an attorney against the
-court's current rules, local rules, standing orders, and any case-specific order before you rely
-on it.
+$ amagi-litigation-deadlines calc --rules frcp --event answer-complaint --date 2026-10-19
+NOT LEGAL ADVICE: This is not legal advice. amagi-litigation-deadlines computes dates from a
+code-maintained summary of court rules. Every computed deadline must be verified by an attorney
+against the court's current rules, local rules, standing orders, and any case-specific order
+before you rely on it.
 
 | Event | Trigger date | Deadline | Rolled forward? | Rule cite | Counting rule |
 |---|---|---|---|---|---|
@@ -26,7 +26,7 @@ computed date.
 
 ## Important: this is not legal advice
 
-**amagi-deadline is a calculator, not a lawyer.** It applies a code-maintained summary of a
+**amagi-litigation-deadlines is a calculator, not a lawyer.** It applies a code-maintained summary of a
 rule's day-counting method and holiday list. It does not know about local rules, standing orders,
 judge-specific procedures, electronic-service variations, prior extensions, or any
 court-specific closure that isn't on its bundled holiday list. **Every deadline this tool
@@ -37,7 +37,7 @@ step.
 ## Install
 
 ```
-pipx install amagi-deadline
+pipx install amagi-litigation-deadlines
 ```
 
 (Not yet published to PyPI — see the repo's release status. Until then, install from source:
@@ -48,7 +48,7 @@ pipx install amagi-deadline
 List the bundled rule sets:
 
 ```
-$ amagi-deadline list-rule-sets
+$ amagi-litigation-deadlines list-rule-sets
 frcp       Federal Rules of Civil Procedure (civil, district court) (counting rule: Fed. R. Civ. P. 6(a))
 florida    Florida state courts (civil) (counting rule: Fla. R. Jud. Admin. 2.514(a))
 ```
@@ -56,7 +56,7 @@ florida    Florida state courts (civil) (counting rule: Fla. R. Jud. Admin. 2.51
 List the events available in a rule set:
 
 ```
-$ amagi-deadline list-events --rules frcp
+$ amagi-litigation-deadlines list-events --rules frcp
 answer-after-waiver             60 day(s)  Fed. R. Civ. P. 12(a)(1)(A)(ii)  -- Answer after waiver of service (domestic defendant)
 answer-after-waiver-foreign     90 day(s)  Fed. R. Civ. P. 12(a)(1)(A)(ii)  -- Answer after waiver of service (defendant outside any US judicial district)
 answer-complaint                21 day(s)  Fed. R. Civ. P. 12(a)(1)(A)(i)  -- Answer to complaint (served, not waived)
@@ -70,7 +70,7 @@ reply-to-crossclaim             21 day(s)  Fed. R. Civ. P. 12(a)(1)(B)  -- Answe
 Compute a deadline and also write an `.ics` file you can import into your calendar:
 
 ```
-$ amagi-deadline calc --rules florida --event answer-complaint --date 2026-10-19 \
+$ amagi-litigation-deadlines calc --rules florida --event answer-complaint --date 2026-10-19 \
     --jurisdiction "Example Circuit Court, Example County" --ics deadline.ics
 
 NOT LEGAL ADVICE: ...
@@ -96,7 +96,7 @@ calculation (the rule set you pick with `--rules` drives the counting method and
 
 ## Rule sets and sources
 
-Each bundled rule set is a YAML file under `src/amagi_deadline/data/`, and every event in it
+Each bundled rule set is a YAML file under `src/amagi_litigation_deadlines/data/`, and every event in it
 carries its own rule citation. The two counting-method citations:
 
 | Rule set | Counting-method citation | Legal-holiday citation |
@@ -104,21 +104,21 @@ carries its own rule citation. The two counting-method citations:
 | `frcp` | Fed. R. Civ. P. 6(a) | 5 U.S.C. S 6103 (via Fed. R. Civ. P. 6(a)(6)(A)) |
 | `florida` | Fla. R. Jud. Admin. 2.514(a) | Fla. Stat. S 683.01 (via Fla. R. Jud. Admin. 2.514(a)(6)) |
 
-See `src/amagi_deadline/data/frcp.yaml` and `src/amagi_deadline/data/florida.yaml` for the
+See `src/amagi_litigation_deadlines/data/frcp.yaml` and `src/amagi_litigation_deadlines/data/florida.yaml` for the
 per-event citations (e.g. `Fed. R. Civ. P. 12(a)(1)(A)(i)` for the standard answer-to-complaint
 deadline). Rules change — contributions that update a citation, add a jurisdiction, or fix a
 holiday list are welcome as PRs against the YAML files.
 
 ## Adding a jurisdiction
 
-Copy an existing file in `src/amagi_deadline/data/`, change the `id`, `name`,
+Copy an existing file in `src/amagi_litigation_deadlines/data/`, change the `id`, `name`,
 `counting_rule_cite`, and `holiday_set` (add a new holiday function in `holidays.py` if the
 jurisdiction's legal-holiday list differs), then add `events:` entries with a `label`, `days`,
 and `cite` for each deadline. Add it to `_BUNDLED` in `rules.py`.
 
 ## Star this if it saved you time
 
-If amagi-deadline saved you from counting days by hand, a star helps other solo/small-firm
+If amagi-litigation-deadlines saved you from counting days by hand, a star helps other solo/small-firm
 litigators and paralegals find it.
 
 ## Other AmagiLabs projects

@@ -35,7 +35,7 @@ _BUNDLED = ("frcp", "florida")
 
 
 def _load_yaml_text(rule_set_id: str) -> str:
-    package_data = resources.files("amagi_deadline") / "data" / f"{rule_set_id}.yaml"
+    package_data = resources.files("amagi_litigation_deadlines") / "data" / f"{rule_set_id}.yaml"
     try:
         return package_data.read_text(encoding="utf-8")
     except FileNotFoundError as exc:

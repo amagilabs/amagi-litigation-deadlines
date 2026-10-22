@@ -1,6 +1,6 @@
 import datetime as dt
 
-from amagi_deadline.holidays import federal_holidays, florida_holidays
+from amagi_litigation_deadlines.holidays import federal_holidays, florida_holidays
 
 
 def test_federal_new_years_2026_is_jan1_thursday():

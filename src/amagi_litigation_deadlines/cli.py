@@ -1,4 +1,4 @@
-"""Command-line interface for amagi-deadline."""
+"""Command-line interface for amagi-litigation-deadlines."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from .ics import write_ics
 from .rules import RuleError, available_rule_sets, get_event, load_rule_set
 
 DISCLAIMER = (
-    "This is not legal advice. amagi-deadline computes dates from a "
+    "This is not legal advice. amagi-litigation-deadlines computes dates from a "
     "code-maintained summary of court rules. Every computed deadline must "
     "be verified by an attorney against the court's current rules, local "
     "rules, standing orders, and any case-specific order before you rely "
@@ -32,13 +32,13 @@ def _parse_date(value: str) -> _dt.date:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="amagi-deadline",
+        prog="amagi-litigation-deadlines",
         description=(
             "Compute litigation response deadlines from a trigger event and date. "
             + DISCLAIMER
         ),
     )
-    parser.add_argument("--version", action="version", version=f"amagi-deadline {__version__}")
+    parser.add_argument("--version", action="version", version=f"amagi-litigation-deadlines {__version__}")
     sub = parser.add_subparsers(dest="command", required=True)
 
     list_rules_p = sub.add_parser("list-rule-sets", help="List bundled rule sets.")

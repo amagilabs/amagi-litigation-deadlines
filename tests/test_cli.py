@@ -1,4 +1,4 @@
-from amagi_deadline.cli import build_parser, main
+from amagi_litigation_deadlines.cli import build_parser, main
 
 
 def test_calc_prints_table_and_disclaimer(capsys):
@@ -53,4 +53,4 @@ def test_calc_writes_ics(tmp_path):
 
 def test_build_parser_has_version():
     parser = build_parser()
-    assert parser.prog == "amagi-deadline"
+    assert parser.prog == "amagi-litigation-deadlines"

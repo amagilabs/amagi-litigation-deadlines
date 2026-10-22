@@ -1,8 +1,8 @@
 import datetime as dt
 
-from amagi_deadline.engine import compute_deadline
-from amagi_deadline.ics import build_ics
-from amagi_deadline.rules import get_event, load_rule_set
+from amagi_litigation_deadlines.engine import compute_deadline
+from amagi_litigation_deadlines.ics import build_ics
+from amagi_litigation_deadlines.rules import get_event, load_rule_set
 
 
 def test_ics_contains_vevent_and_date():
@@ -34,7 +34,7 @@ def test_ics_escapes_commas_and_semicolons():
 
 
 def test_write_ics_creates_file(tmp_path):
-    from amagi_deadline.ics import write_ics
+    from amagi_litigation_deadlines.ics import write_ics
 
     rs = load_rule_set("frcp")
     event = get_event(rs, "answer-complaint")
