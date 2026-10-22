@@ -40,9 +40,6 @@ step.
 pipx install amagi-litigation-deadlines
 ```
 
-(Not yet published to PyPI — see the repo's release status. Until then, install from source:
-`pip install -e .` from a clone of this repo.)
-
 ## Usage
 
 List the bundled rule sets:
